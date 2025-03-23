@@ -22,10 +22,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "npm run install-all && npm run build",
-    "start": "node index.js",
-    "deploy": "npm run build && npm start"
-  },
+  "build": "npm install && npm run build",
+  "start": "node index.js",
+  "deploy": "npm run build && npm start"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
