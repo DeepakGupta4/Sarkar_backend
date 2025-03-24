@@ -10,15 +10,17 @@ const app = express();
 
 // 🔹 Middleware
 app.use(express.json());
-app.use(cors({ origin: "*" })); // CORS Enable
-const allowedOrigins = [
-  "https://sarkar-frontend.vercel.app", // ✅ Final User Frontend
-  "https://admin-panel-five-lemon.vercel.app" // ✅ Admin Frontend ka link yaha lagao
-];
+// const allowedOrigins = [
+//   "https://sarkar-frontend.vercel.app", // ✅ Final User Frontend
+//   "https://admin-panel-five-lemon.vercel.app" // ✅ Admin Frontend ka link yaha lagao
+// ];
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true,
+    origin: [
+      "https://sarkar-frontend.vercel.app",
+      "https://admin-panel-five-lemon.vercel.app",
+    ],
+    credentials: true, // ✅ Cookies aur authentication allow karega
   })
 );
 
