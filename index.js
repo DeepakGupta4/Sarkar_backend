@@ -10,17 +10,16 @@ const app = express();
 
 // 🔹 Middleware
 app.use(express.json());
-// const allowedOrigins = [
-//   "https://sarkar-frontend.vercel.app", // ✅ Final User Frontend
-//   "https://admin-panel-five-lemon.vercel.app" // ✅ Admin Frontend ka link yaha lagao
-// ];
 app.use(
   cors({
     origin: [
       "https://sarkar-frontend.vercel.app",
       "https://admin-panel-five-lemon.vercel.app",
+      "https://sarkar-frontend-git-main-deepakgupta4s-projects.vercel.app" // ✅ Ye bhi allow karo
     ],
-    credentials: true, // ✅ Cookies aur authentication allow karega
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 
@@ -38,6 +37,7 @@ app.use("/api/jobs", jobRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/contact", contactRoute);
 app.use("/api/all-jobs", allJobs);
+
 
 // 🔹 MongoDB Connection
 mongoose
