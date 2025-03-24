@@ -11,6 +11,17 @@ const app = express();
 // 🔹 Middleware
 app.use(express.json());
 app.use(cors({ origin: "*" })); // CORS Enable
+const allowedOrigins = [
+  "https://sarkar-frontend.vercel.app", // ✅ Final User Frontend
+  "https://admin-panel-five-lemon.vercel.app" // ✅ Admin Frontend ka link yaha lagao
+];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
+
 
 // 🔹 Import Routes
 const authRoute = require("./Routes/authRoute.js");
